@@ -3,25 +3,25 @@
 namespace Nulpunk\SAList;
 
 /**
- * SAList implementation
+ * MoveToFront implementation
+ * Everytime an element is found, we move it to the front
  **/
-class MoveToFrontList implements \Iterator
+class MoveToFrontList extends SAList
 {
+    /**
+     * @param mixed $e An element to be added
+     */
     public function add($e)
     {
         $this->list[] = $e;
     }
 
-    public function size()
-    {
-        return count($this->list);
-    }
-
-    public function clear()
-    {
-        $this->list = array();
-    }
-
+    /**
+     * Given a callback, which returns true or false,
+     * find an element which the callback returns true on
+     * @param callable $comparator function ($e) { return true; }
+     * @return mixed The element found (can be any type)
+     */
     public function find($comparator)
     {
         foreach ($this->list as $index => $element) {
@@ -36,32 +36,5 @@ class MoveToFrontList implements \Iterator
     {
         unset($this->list[$index]);
         array_unshift($this->list, $element);
-    }
-
-    // Iterator Methods //
-    protected $i = 0;
-    public function rewind()
-    {
-        $this->i = 0;
-    }
-
-    public function current()
-    {
-        return $this->list[$this->i];
-    }
-
-    public function next()
-    {
-        $this->i++;
-    }
-
-    public function key()
-    {
-        return $this->i;
-    }
-
-    public function valid()
-    {
-        return $this->i < $this->size();
     }
 }
