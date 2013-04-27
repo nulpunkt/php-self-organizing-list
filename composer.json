@@ -1,4 +1,18 @@
 {
+    "name": "nulpunkt/salist",
+    "type": "library",
+    "description": "Self-adjusting lists",
+    "keywords": ["list","self adjusting"],
+    "homepage": "http://github.com/nulpunkt/php-self-organizing-list",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jesper Skovgård Nielsen",
+            "email": "nulpunkt@gmail.com",
+            "homepage": "http://runlevel0.dk",
+            "role": "Developer"
+        }
+    ],
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
 		"apix/autoloader": "1.0.*",
