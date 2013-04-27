@@ -20,5 +20,10 @@
         "phpunit/phpunit": "3.7.*",
 		"apix/autoloader": "1.0.*",
 		"squizlabs/php_codesniffer": "1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Nulpunkt": "src"
+        }
     }
 }
