@@ -1,15 +1,21 @@
 <?php
 
+namespace Unit;
+
 use Nulpunk\SAList\MoveToFrontList;
 
-class MoveToFrontListTest extends PHPUnit_Framework_TestCase
+class MoveToFrontListTest extends SAListTest
 {
     /**
      * @dataProvider threeElemeentsProvider
      */
     public function testFind($l)
     {
-        $l->find(function ($i) { return $i == 2; });
+        $l->find(
+            function ($i) {
+                return $i == 2;
+            }
+        );
     }
 
     /**
@@ -17,11 +23,19 @@ class MoveToFrontListTest extends PHPUnit_Framework_TestCase
      */
     public function testMoveToFront($l)
     {
-        $l->find(function ($i) { return $i == 2; });
+        $l->find(
+            function ($i) {
+                return $i == 2;
+            }
+        );
         $l->rewind();
         $this->assertSame(2, $l->current());
         
-        $l->find(function ($i) { return $i == 3; });
+        $l->find(
+            function ($i) {
+                return $i == 3;
+            }
+        );
         $l->rewind();
         $this->assertSame(3, $l->current());
         $l->next();
@@ -31,8 +45,9 @@ class MoveToFrontListTest extends PHPUnit_Framework_TestCase
     public function threeElemeentsProvider()
     {
         $l = new MoveToFrontList();
-        for ($i = 1; $i < 4; $i++)
+        for ($i = 1; $i < 4; $i++) {
             $l->add($i);
+        }
         return array(array($l));
     }
 

@@ -1,8 +1,10 @@
 <?php
 
+namespace Unit;
+
 use Nulpunk\SAList\MoveToFrontList;
 
-class SAListTest extends PHPUnit_Framework_TestCase
+abstract class SAListTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider emptyProvider
@@ -44,16 +46,7 @@ class SAListTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($l->valid());
     }
 
-    public function threeElemeentsProvider()
-    {
-        $l = new MoveToFrontList();
-        for ($i = 1; $i < 4; $i++)
-            $l->add($i);
-        return array(array($l));
-    }
+    abstract public function threeElemeentsProvider();
 
-    public function emptyProvider()
-    {
-        return array(array(new MoveToFrontList()));
-    }
+    abstract public function emptyProvider();
 }

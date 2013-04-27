@@ -1,5 +1,4 @@
 <?php
-
 namespace Nulpunk\SAList;
 
 /**
@@ -30,6 +29,7 @@ class MoveToFrontList extends SAList
                 return $element;
             }
         }
+        return null;
     }
 
     protected function moveToFront($index, $element)
