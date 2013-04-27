@@ -1,17 +1,10 @@
-if [ $# -ne 1 ]
-then
-	echo "Usage: evn.sh [setup|teardown]"
-	return
-fi
-
-if [ "$1" == "setup" ]
+if [ "$OLD_PATH" == "" ]
 then
 	export OLD_PATH=$PATH;
 	PATH="$PWD/vendor/bin:$PATH"
-fi
-
-if [ "$1" == "teardown" ]
-then
+	echo "New path is ready to go"
+else
 	PATH=$OLD_PATH
 	env -u "OLD_PATH" > /dev/null
+	echo "Project path is deleted"
 fi
