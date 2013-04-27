@@ -1,6 +1,6 @@
 <?php
 
-namespace Nulpunk\SAList;
+namespace Nulpunkt\SAList;
 
 /**
  * Abstract SAList

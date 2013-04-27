@@ -2,7 +2,7 @@
 
 namespace Unit;
 
-use Nulpunk\SAList\MoveToFrontList;
+use Nulpunkt\SAList\MoveToFrontList;
 
 abstract class SAListTest extends \PHPUnit_Framework_TestCase
 {

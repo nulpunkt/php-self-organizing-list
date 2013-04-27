@@ -2,7 +2,7 @@
 
 namespace Unit;
 
-use Nulpunk\SAList\CountList;
+use Nulpunkt\SAList\CountList;
 
 class CountListTest extends SAListTest
 {

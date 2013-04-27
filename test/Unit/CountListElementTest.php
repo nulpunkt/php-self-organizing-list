@@ -2,7 +2,7 @@
 
 namespace Unit;
 
-use Nulpunk\SAList\CountListElement;
+use Nulpunkt\SAList\CountListElement;
 
 class CountListElementTest extends \PHPUnit_Framework_TestCase
 {

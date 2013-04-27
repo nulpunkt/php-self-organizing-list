@@ -2,7 +2,7 @@
 
 namespace Unit;
 
-use Nulpunk\SAList\MoveToFrontList;
+use Nulpunkt\SAList\MoveToFrontList;
 
 class MoveToFrontListTest extends SAListTest
 {

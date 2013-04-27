@@ -2,7 +2,7 @@
 
 namespace Unit;
 
-use Nulpunk\SAList\TransposeList;
+use Nulpunkt\SAList\TransposeList;
 
 class TransposeListTest extends SAListTest
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Nulpunk\SAList;
+namespace Nulpunkt\SAList;
 
 /**
  * Transpose list implementation
