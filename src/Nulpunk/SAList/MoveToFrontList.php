@@ -8,14 +8,6 @@ namespace Nulpunk\SAList;
 class MoveToFrontList extends SAList
 {
     /**
-     * @param mixed $e An element to be added
-     */
-    public function add($e)
-    {
-        $this->list[] = $e;
-    }
-
-    /**
      * Given a callback, which returns true or false,
      * find an element which the callback returns true on
      * @param callable $comparator function ($e) { return true; }
@@ -23,13 +15,7 @@ class MoveToFrontList extends SAList
      */
     public function find($comparator)
     {
-        foreach ($this->list as $index => $element) {
-            if ($comparator($element)) {
-                $this->moveToFront($index, $element);
-                return $element;
-            }
-        }
-        return null;
+        return $this->findAndMove($comparator, array($this, 'moveToFront'));
     }
 
     protected function moveToFront($index, $element)

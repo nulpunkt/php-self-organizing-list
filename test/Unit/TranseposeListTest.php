@@ -21,9 +21,25 @@ class TransposeListTest extends SAListTest
      */
     public function testTransposeToSecond($l)
     {
-        $this->find(2, $l);
+        $this->find(3, $l);
         $l->rewind();
-        $this->assertSame(2, $l->current());
+        $l->next();
+        $this->assertSame(3, $l->current());
+        $l->rewind();
+        $this->find(3, $l);
+        $this->assertSame(3, $l->current());
+    }
+    
+    /**
+     * @dataProvider threeElemeentsProvider
+     */
+    public function testTransposeBackToFront($l)
+    {
+        $this->assertSame(1, $l->current());
+        $this->find(3, $l);
+        $this->find(3, $l);
+        $l->rewind();
+        $this->assertSame(3, $l->current());
     }
 
     public function threeElemeentsProvider()

@@ -16,17 +16,10 @@ class TransposeList extends SAList
      */
     public function find($comparator)
     {
-        foreach ($this->list as $index => $element) {
-            if ($comparator($element)) {
-                $this->swap($index-1, $index);
-                return $element;
-            }
-        }
-        return null;
-    }
-
-    public function add($e)
-    {
-        $this->list[] = $e;
+        $self = $this;
+        $moverStrategy = function ($index, $e) use ($self) {
+                $self->swap($index-1, $index);
+        };
+        return $this->findAndMove($comparator, $moverStrategy);
     }
 }
