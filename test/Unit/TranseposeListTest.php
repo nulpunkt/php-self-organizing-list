@@ -2,29 +2,33 @@
 
 namespace Unit;
 
-use Nulpunk\SAList\MoveToFrontList;
+use Nulpunk\SAList\TransposeList;
 
-class MoveToFrontListTest extends SAListTest
+class TransposeListTest extends SAListTest
 {
     /**
      * @dataProvider threeElemeentsProvider
      */
-    public function testMoveToFront($l)
+    public function testTransposeToFirst($l)
     {
         $this->find(2, $l);
         $l->rewind();
         $this->assertSame(2, $l->current());
-        
-        $this->find(3, $l);
+    }
+
+    /**
+     * @dataProvider threeElemeentsProvider
+     */
+    public function testTransposeToSecond($l)
+    {
+        $this->find(2, $l);
         $l->rewind();
-        $this->assertSame(3, $l->current());
-        $l->next();
         $this->assertSame(2, $l->current());
     }
-    
+
     public function threeElemeentsProvider()
     {
-        $l = new MoveToFrontList();
+        $l = new TransposeList();
         for ($i = 1; $i < 4; $i++) {
             $l->add($i);
         }
@@ -33,6 +37,6 @@ class MoveToFrontListTest extends SAListTest
 
     public function emptyProvider()
     {
-        return array(array(new MoveToFrontList()));
+        return array(array(new TransposeList()));
     }
 }

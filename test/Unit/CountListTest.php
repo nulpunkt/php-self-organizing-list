@@ -9,18 +9,6 @@ class CountListTest extends SAListTest
     /**
      * @dataProvider threeElemeentsProvider
      */
-    public function testFind($l)
-    {
-        $l->find(
-            function ($i) {
-                return $i == 2;
-            }
-        );
-    }
-
-    /**
-     * @dataProvider threeElemeentsProvider
-     */
     public function testCountAndMoveOnce($l)
     {
         $this->find(2, $l);
@@ -53,15 +41,6 @@ class CountListTest extends SAListTest
         $this->find(3, $l);
         $l->rewind();
         $this->assertSame(3, $l->current());
-    }
-
-    protected function find($i, $l)
-    {
-        $l->find(
-            function ($e) use ($i) {
-                return $e == $i;
-            }
-        );
     }
 
     public function threeElemeentsProvider()

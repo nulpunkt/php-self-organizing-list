@@ -2,19 +2,12 @@
 namespace Nulpunk\SAList;
 
 /**
- * MoveToFront implementation
- * Everytime an element is found, we move it to the front
+ * Transpose list implementation
+ * When an element is accessed, it is swaped
+ * with its predecessor
  **/
-class MoveToFrontList extends SAList
+class TransposeList extends SAList
 {
-    /**
-     * @param mixed $e An element to be added
-     */
-    public function add($e)
-    {
-        $this->list[] = $e;
-    }
-
     /**
      * Given a callback, which returns true or false,
      * find an element which the callback returns true on
@@ -25,19 +18,15 @@ class MoveToFrontList extends SAList
     {
         foreach ($this->list as $index => $element) {
             if ($comparator($element)) {
-                $this->moveToFront($index, $element);
+                $this->swap($index-1, $index);
                 return $element;
             }
         }
         return null;
     }
 
-    protected function moveToFront($index, $element)
+    public function add($e)
     {
-        if ($index == 0) {
-            return;
-        }
-        unset($this->list[$index]);
-        array_unshift($this->list, $element);
+        $this->list[] = $e;
     }
 }

@@ -28,6 +28,15 @@ abstract class SAListTest extends \PHPUnit_Framework_TestCase
         $l->clear();
         $this->assertSame(0, $l->size());
     }
+    
+    /**
+     * @dataProvider threeElemeentsProvider
+     */
+    public function testFind($l)
+    {
+        $e = $this->find(2, $l);
+        $this->assertSame(2, $e);
+    }
 
     /**
      * @dataProvider threeElemeentsProvider
@@ -44,6 +53,15 @@ abstract class SAListTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(3, $l->current());
         $l->next();
         $this->assertFalse($l->valid());
+    }
+
+    protected function find($i, $l)
+    {
+        return $l->find(
+            function ($e) use ($i) {
+                return $e == $i;
+            }
+        );
     }
 
     abstract public function threeElemeentsProvider();

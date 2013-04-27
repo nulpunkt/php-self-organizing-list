@@ -23,6 +23,18 @@ abstract class SAList implements \Iterator
     {
         $this->list = array();
     }
+    
+    /**
+     * Swap two elements in the list
+     * Both CountList and TransposeList uses this
+     */
+    protected function swap($from, $to)
+    {
+        $tmp = $this->list[$to];
+        $this->list[$to] = $this->list[$from];
+        $this->list[$from] = $tmp;
+    }
+
 
     // Iterator Methods //
     protected $i = 0;

@@ -3,6 +3,8 @@ namespace Nulpunk\SAList;
 
 /**
  * Count list implementation
+ * Every element has a count of how many times it has been
+ * access. The most access item is in the front
  **/
 class CountList extends SAList
 {
@@ -31,13 +33,6 @@ class CountList extends SAList
             ) {
             $this->swap($index-1, $index);
         }
-    }
-
-    protected function swap($from, $to)
-    {
-        $tmp = $this->list[$to];
-        $this->list[$to] = $this->list[$from];
-        $this->list[$from] = $tmp;
     }
 
     public function current()
